@@ -46,6 +46,7 @@ const Detail = ({ user }) => {
         try {
           await api.put(`/user/${user._id}`, values);
           toast.success("Updated!");
+          history.push(`/user`);
         } catch (e) {
           console.log(e);
           toast.error("Some Error!");
@@ -55,6 +56,7 @@ const Detail = ({ user }) => {
         return (
           <React.Fragment>
             <div className="flex justify-between flex-wrap mt-4">
+              {/* name */}
               <div className="w-full md:w-[260px] mt-[10px] md:mt-0 ">
                 <div className="text-[14px] text-[#212325] font-medium	">Name</div>
                 <input
@@ -65,10 +67,12 @@ const Detail = ({ user }) => {
                   onChange={handleChange}
                 />
               </div>
+              {/* email */}
               <div className="w-full md:w-[260px] mt-[10px] md:mt-0">
                 <div className="text-[14px] text-[#212325] font-medium	">Email</div>
                 <input className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" name="email" value={values.email} onChange={handleChange} />
               </div>
+              {/* status */}
               <div className="w-full md:w-[165px] mt-[10px] md:mt-0">
                 <div className="text-[14px] text-[#212325] font-medium	">Status</div>
                 <select className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" type="select" name="status" value={values.status} onChange={handleChange}>
@@ -77,7 +81,8 @@ const Detail = ({ user }) => {
                 </select>
               </div>
             </div>
-            <div className="flex flex-wrap justify-between mt-4	space-x-3">
+            <div className="flex flex-wrap justify-between  mt-4	space-x-3">
+              {/* job title */}
               <div className="w-full md:w-[260px] ">
                 <div className="text-[14px] text-[#212325] font-medium">Job title</div>
                 <input
@@ -87,9 +92,18 @@ const Detail = ({ user }) => {
                   onChange={handleChange}
                 />
               </div>
+              {/* availability */}
+              <div className="w-full md:w-[165px] mt-[10px] md:mt-0">
+                <div className="text-[14px] text-[#212325] font-medium	">Availability</div>
+                <select className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" type="select" name="availability" value={values.availability} onChange={handleChange}>
+                  <option value="not available">Not Available</option>
+                  <option value="available">Available</option>
+                </select>
+              </div>
             </div>
 
             <div className="flex flex-wrap justify-between mt-4">
+              {/* days worked */}
               <div className="w-full md:w-[260px] ">
                 <div className="text-[14px] text-[#212325] font-medium	">Days worked</div>
                 <input
@@ -100,6 +114,7 @@ const Detail = ({ user }) => {
                   onChange={handleChange}
                 />{" "}
               </div>
+              {/* cost per day */}
               <div className="w-full md:w-[260px] ">
                 <div className="text-[14px] text-[#212325] font-medium	">Cost per day</div>
                 <input
@@ -110,6 +125,7 @@ const Detail = ({ user }) => {
                   onChange={handleChange}
                 />
               </div>
+              {/* sell per day */}
               <div className="w-full md:w-[260px] ">
                 <div className="text-[14px] text-[#212325] font-medium	">Sell per day</div>
                 <input
@@ -132,7 +148,7 @@ const Detail = ({ user }) => {
             </div>
 
             <div className="flex  mt-2">
-              <LoadingButton className="bg-[#0560FD] text-[16px] font-medium text-[#FFFFFF] py-[12px] px-[22px] rounded-[10px]" loading={isSubmitting} onChange={handleSubmit}>
+              <LoadingButton type='submit' className="bg-[#0560FD] text-[16px] font-medium text-[#FFFFFF] py-[12px] px-[22px] rounded-[10px]" loading={isSubmitting} onClick={handleSubmit}>
                 Update
               </LoadingButton>
               <button className="ml-[10px] bg-[#F43F5E] text-[16px] font-medium text-[#FFFFFF] py-[12px] px-[22px] rounded-[10px]" onClick={deleteData}>
