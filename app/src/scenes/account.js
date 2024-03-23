@@ -34,6 +34,7 @@ export default () => {
     }
     setIsLoading(false);
   }
+  console.log(user);
 
   return (
     <div>
@@ -57,6 +58,10 @@ export default () => {
               <div className="w-full md:w-[48.5%]">
                 <div>Address</div>
                 <textarea className="projectsInput h-auto py-2" name="address" value={values.address} onChange={(e) => setValues({ ...values, address: e.target.value })} />
+              </div>
+              <div className="w-full md:w-[48.5%]">
+                <div>Photo URL</div>
+                <input className="projectsInput" name="avatar" value={values.avatar} onChange={(e) => setValues({ ...values, avatar: e.target.value })} />
               </div>
             </div>
             <hr className="my-4" />

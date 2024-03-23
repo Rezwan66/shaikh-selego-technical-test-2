@@ -224,7 +224,7 @@ const UserCard = ({ hit, projects }) => {
           />
         </div>
         <div className="flex flex-col items-center z-20">
-          <img src={hit.avatar} className="object-contain rounded-full w-20 h-20 " />
+          <img src={hit.avatar} className="object-cover rounded-full w-20 h-20 " />
           <div className={`rounded-full py-1 px-3 whitespace-nowrap ${hit.availability === "available" ? "bg-[#2EC735]" : "bg-[#8A8989]"} flex items-center gap-2 -translate-y-2`}>
             <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="4" cy="4" r="4" fill="white" />
