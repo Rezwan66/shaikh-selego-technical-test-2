@@ -83,6 +83,7 @@
     "react-rte": "^0.16.5",
     "react-tagsinput": "^3.19.0",
     "reactstrap": "^8.5.1",
+    "recharts": "^2.12.3",
     "redux": "^4.0.5",
     "slate": "^0.78.0",
     "slate-history": "^0.66.0",

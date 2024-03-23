@@ -126,7 +126,7 @@ const Detail = ({ user }) => {
                 />
               </div>
               {/* sell per day */}
-              <div className="w-full md:w-[260px] ">
+              <div className="w-full md:w-[165px] ">
                 <div className="text-[14px] text-[#212325] font-medium	">Sell per day</div>
                 <input
                   className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]"

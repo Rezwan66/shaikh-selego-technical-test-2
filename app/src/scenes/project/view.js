@@ -12,6 +12,7 @@ import api from "../../services/api";
 
 import ProgressBar from "../../components/ProgressBar";
 import SelectMonth from "./../../components/selectMonth";
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 ChartJS.register(...registerables);
 
@@ -122,7 +123,46 @@ const Budget = ({ project }) => {
   const width = (100 * total) / budget_max_monthly || 0;
 
   if (!project.budget_max_monthly) return <div className="mt-2 text-[24px] text-[#212325] font-semibold">{total.toFixed(2)}€</div>;
-  return <ProgressBar percentage={width} max={budget_max_monthly} value={total} />;
+
+  const pieData = [{ name: "Total Used (€)", value: total }, { name: "Max Budget (€)", value: budget_max_monthly }];
+  // const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+  const COLORS = ['#FF8042', '#0088FE'];
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+  return (
+    <div className="flex flex-row md:flex-col items-center justify-between w-full ">
+      <ProgressBar percentage={width} max={budget_max_monthly} value={total} />
+      {/* <ResponsiveContainer width="100%" height="100%"> */}
+      <PieChart width={200} height={200}>
+        <Pie
+          data={pieData}
+          cx="50%"
+          cy="50%"
+          labelLine={false}
+          label={renderCustomizedLabel}
+          outerRadius={100}
+          fill="#8884d8"
+          dataKey="value"
+        >
+          {pieData.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+      </PieChart>
+      {/* </ResponsiveContainer> */}
+    </div>
+  );
 };
 
 const Activities = ({ project }) => {
