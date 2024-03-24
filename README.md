@@ -19,9 +19,10 @@
 
 **3. Do you have any feedback about the code/architecture of the project, and what difficulties did you encounter while doing it?**
 
-- Overall, the codebase follows a structured architecture and adheres to best practices.
-- However, there were some challenges encountered during development, particularly in handling data structures and managing state updates efficiently.
-- Further optimization and refactoring may be beneficial to improve performance and maintainability in the long run.
+- Overall, the codebase follows quite a complex architecture but adheres to best practices.
+- However, I think that there were some challenges faced during development, particularly in handling data structures and managing state updates efficiently.
+- Further optimization and refactoring may help to improve performance and maintainability in the long run.
+- One major bug was related to the login issue, where a signed up user is unable to login using their Username and Password. But this has inaccessible to me because of the complexity and abstract manner of the signin and signup pages` code.
 
 ---
 
