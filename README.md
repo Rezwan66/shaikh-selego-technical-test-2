@@ -22,7 +22,7 @@
 - Overall, the codebase follows quite a complex architecture but adheres to best practices.
 - However, I think that there were some challenges faced during development, particularly in handling data structures and managing state updates efficiently.
 - Further optimization and refactoring may help to improve performance and maintainability in the long run.
-- One major bug was related to the login issue, where a signed up user is unable to login using their Username and Password. But this has inaccessible to me because of the complexity and abstract manner of the signin and signup pages` code.
+- One major bug was related to the login functionality, where a signed up user is unable to login using their Username and Password. Despite recognizing the problem, I encountered difficulty in resolving it due to the complexity and abstract nature of the signin and signup pages' code. While I was unable to address this issue directly, I remain committed and want to collaborate to find a solution.
 
 ---
 
